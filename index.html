@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="theme-color" content="#cc6e4e" /> -->
     <title>Mateusz Portoflio 🍾</title>
     <base href="/">
     <script>
@@ -24,28 +25,30 @@
       }(window.location))
     </script>
     <script>
+    var s = document.createElement("script");
+    s.type = "text/javascript";
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      // var hint = document.createElement('link');
-      //     hint.rel = "prefetch";
-      //     hint.as = "script";
-      //     hint.href = 'https://mateuszjs.github.io/animation.bundle.js';
-      // document.head.appendChild(hint);
       window.isDesktop = false;
       window.isMobile = true;
+      s.src = "/animationMobile.bundle.js";
+      
     } else {
       window.isDesktop = true;
       window.isMobile = false;
+      s.src = "/animationDekstop.bundle.js";
     }
+    document.head.appendChild(s)
     </script>
   <link href="/index.bundle.css" rel="stylesheet"></head>
   <body>
-    <p id="sensor-test"></p>
-    <p id="orientation-test"></p>
-    <span class="cursor" style="display: none"></span>
+    <div class="svg-container"></div>
     <canvas class="animation-block"></canvas>
     <div class="btn-container">
       <button class="btn">Works</button>
     </div>
     <main></main>
-  <script type="text/javascript" src="/index.bundle.js" defer></script><script type="text/javascript" src="/animation.bundle.js"></script><script type="text/javascript" src="/prefetchImages.bundle.js"></script></body>
+  <script type="text/javascript" src="/index.bundle.js" defer></script>
+  
+  <script type="text/javascript" src="/prefetchImages.bundle.js"></script>
+  </body>
 </html>
